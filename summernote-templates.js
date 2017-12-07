@@ -1,5 +1,5 @@
-/* https://github.com/DiemenDesign/summernote-newpage */
-(function(factory) {
+/* https://github.com/DiemenDesign/summernote-templates */
+(function (factory) {
   if (typeof define === 'function'&&define.amd) {
     define(['jquery'], factory)
   } else if (typeof module === 'object' && module.exports) {
@@ -8,7 +8,7 @@
     factory(window.jQuery)
   }
 }
-(function($) {
+(function ($) {
   $.extend(true,$.summernote.lang, {
     'en-US': {
       pageTemplates: {
@@ -17,15 +17,15 @@
         editBtn:     'Insert'
       },
       blocks: {
-        tooltip:          'Blocks',
-        dialogTitle:      'Blocks',
-        editBtn:          'Insert'
+        tooltip:     'Blocks',
+        dialogTitle: 'Blocks',
+        editBtn:     'Insert'
       }
     }
   });
   $.extend($.summernote.options, {
     pageTemplates: {
-      icon: '<i class="note-icon"><svg xmlns="http://www.w3.org/2000/svg" id="libre-file-docs" viewBox="0 0 14 14" width="14" height="14"><path d="m 10,10.696915 -6,0 0,-1.071288 6,0 z m -0.00114,-1.9788834 -2.3368368,0 0,-1.0712886 2.3368368,0 z m 0,-1.9759562 -2.3368368,0 0,-1.071288 2.3368368,0 z m -3.3029604,1.9759562 -2.6958966,0 0,-3.0472086 2.6958966,0 z M 7.640148,1.26517 C 7.49432,1.11934 7.20625,1 7,1 L 2.5,1 C 2.29375,1 2.125,1.16875 2.125,1.375 l 0,11.25 C 2.125,12.83125 2.29375,13 2.5,13 l 9,0 c 0.20625,0 0.375,-0.16875 0.375,-0.375 l 0,-6.75 c 0,-0.20625 -0.11932,-0.49432 -0.265148,-0.64015 L 7.640148,1.26517 Z M 11.125,12.25 l -8.25,0 0,-10.5 4.115133,0 c 0.03417,0.006 0.09853,0.0323 0.12668,0.0525 l 3.955734,3.95571 c 0.02018,0.0281 0.04683,0.0925 0.05245,0.12668 l 0,6.36513 z M 11.5,1 9.25,1 C 9.04375,1 8.99432,1.11932 9.140148,1.26515 l 2.46968,2.46968 C 11.75568,3.88068 11.875,3.83125 11.875,3.625 l 0,-2.25 C 11.875,1.16875 11.70625,1 11.5,1 Z"/></svg></i>',
+      icon: '<i class="note-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" width="14" height="14"><path d="m 10,10.696915 -6,0 0,-1.071288 6,0 z m -0.00114,-1.9788834 -2.3368368,0 0,-1.0712886 2.3368368,0 z m 0,-1.9759562 -2.3368368,0 0,-1.071288 2.3368368,0 z m -3.3029604,1.9759562 -2.6958966,0 0,-3.0472086 2.6958966,0 z M 7.640148,1.26517 C 7.49432,1.11934 7.20625,1 7,1 L 2.5,1 C 2.29375,1 2.125,1.16875 2.125,1.375 l 0,11.25 C 2.125,12.83125 2.29375,13 2.5,13 l 9,0 c 0.20625,0 0.375,-0.16875 0.375,-0.375 l 0,-6.75 c 0,-0.20625 -0.11932,-0.49432 -0.265148,-0.64015 L 7.640148,1.26517 Z M 11.125,12.25 l -8.25,0 0,-10.5 4.115133,0 c 0.03417,0.006 0.09853,0.0323 0.12668,0.0525 l 3.955734,3.95571 c 0.02018,0.0281 0.04683,0.0925 0.05245,0.12668 l 0,6.36513 z M 11.5,1 9.25,1 C 9.04375,1 8.99432,1.11932 9.140148,1.26515 l 2.46968,2.46968 C 11.75568,3.88068 11.875,3.83125 11.875,3.625 l 0,-2.25 C 11.875,1.16875 11.70625,1 11.5,1 Z"/></svg></i>',
       insertDetails: false,
       dateFormat:    'longDate',
       yourName:      'Your Name',
@@ -41,12 +41,12 @@
       templates:     '../summernote-templates/page-templates/'
     },
     blocks: {
-      icon:      '<i class="note-icon"><svg xmlns="http://www.w3.org/2000/svg" id="libre-display-layout-blocks" viewBox="0 0 14 14" width="14" height="14"><path d="M 1,6.249111 H 6.25031 V 1 H 1 V 6.249111 z M 7.74969,1 V 6.249111 H 13 V 1 H 7.74969 z m 0,12 H 13 V 7.750444 H 7.74969 V 13 z M 1,13 H 6.25031 V 7.750444 H 1 V 13 z"/></svg></i>',
+      icon: '<i class="note-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" width="14" height="14"><path d="M 1,6.249111 H 6.25031 V 1 H 1 V 6.249111 z M 7.74969,1 V 6.249111 H 13 V 1 H 7.74969 z m 0,12 H 13 V 7.750444 H 7.74969 V 13 z M 1,13 H 6.25031 V 7.750444 H 1 V 13 z"/></svg></i>',
       templates: '../summernote-templates/bootstrap-templates/'
     }
   });
   $.extend($.summernote.plugins, {
-    'pageTemplates':function (context) {
+    'pageTemplates': function (context) {
       var self      = this;
       var ui        = $.summernote.ui;
       var $note     = context.layoutInfo.note;
@@ -54,11 +54,11 @@
       var $editable = context.layoutInfo.editable;
       var options   = context.options;
       var lang      = options.langInfo;
-      context.memo('button.pageTemplates',function () {
+      context.memo('button.pageTemplates', function () {
         var button = ui.button({
           contents: options.pageTemplates.icon,
-          tooltip: lang.pageTemplates.tooltip,
-          click:function (e) {
+          tooltip:  lang.pageTemplates.tooltip,
+          click:    function (e) {
             context.invoke('pageTemplates.show');
           }
         });
@@ -66,10 +66,10 @@
       });
       this.initialize = function () {
         var $container = options.dialogsInBody ? $(document.body) : $editor;
-        var body = '<div id="note-pageTemplates" style="max-height:310px;overflow:auto;"></div>';
-        this.$dialog = ui.dialog({
-          title: lang.pageTemplates.dialogTitle,
-          body: body,
+        var body       = '<div id="note-pageTemplates" style="max-height:310px;overflow:auto;"></div>';
+        this.$dialog   = ui.dialog({
+          title:  lang.pageTemplates.dialogTitle,
+          body:   body,
           footer: '<button href="#" class="btn btn-primary note-pageTemplates-btn">' + lang.pageTemplates.editBtn + '</button>'
         }).render().appendTo($container);
       };
@@ -93,22 +93,22 @@
       };
       this.showpageTemplatesDialog = function () {
         return $.Deferred(function (deferred) {
-          var $editBtn = self.$dialog.find('.note-pageTemplates-btn');
-          ui.onDialogShown(self.$dialog,function () {
+          var $pTBtn = self.$dialog.find('.note-pageTemplates-btn');
+          ui.onDialogShown(self.$dialog, function () {
             context.triggerEvent('dialog.shown');
             var ii = 1;
             $('#note-pageTemplates').html('');
             $.get(options.pageTemplates.templates).done(function (data) {
-              $(data).find("a").attr("href",function (i,val) {
+              $(data).find("a").attr("href", function (i, val) {
                 if (val.match(/\.(html)$/)) {
-                  var filename = val.replace('.html','.png');
-                  var name = val.replace(/.html|%20|_/gi,' ');
+                  var filename = val.replace('.html', '.png');
+                  var name = val.replace(/.html|%20|_/gi, ' ');
                   $('#note-pageTemplates').append('<div class="col-xs-3"><input id="note-select-' + ii + '" class="hidden" type="radio" value="' + val + '" name="note-pageTemplates-select">&nbsp;&nbsp;<label for="note-select-' + ii + '" class="control-label note-pageTemplates-label"><img src="' + options.pageTemplates.templates + name + '" class="img-thumbnail note-thumb-selection" onclick="$(\'.note-thumb-selection\').css({\'box-shadow\':\'none\'});$(this).css({\'box-shadow\':\'0 0 10px #f40\'});"></label><small><small>' + name.charAt(0).toUpperCase() + name.substr(1).toLowerCase() + '</small></small></div>');
                   ii++;
                 }
               });
             });
-            $editBtn.click(function (e) {
+            $pTBtn.click(function (e) {
               var pageTemplatesSelected = $('input[name=note-pageTemplates-select]:checked').val();
               if (pageTemplatesSelected) {
                 $.get(options.pageTemplates.templates + pageTemplatesSelected).done(function (data) {
@@ -153,15 +153,15 @@
                 });
               }
             });
-            self.bindEnterKey($editBtn);
+            self.bindEnterKey($pTBtn);
             self.bindLabels();
           });
           this.destroy = function () {
             ui.hideDialog(this.$dialog);
             this.$dialog.remove();
           };
-          ui.onDialogHidden(self.$dialog,function () {
-            $editBtn.off('click');
+          ui.onDialogHidden(self.$dialog, function () {
+            $pTBtn.off('click');
             if (deferred.state() === 'pending') deferred.reject();
           });
           ui.showDialog(self.$dialog);
@@ -169,9 +169,8 @@
       };
     }
   });
-
   $.extend($.summernote.plugins, {
-    'blocks':function (context) {
+    'blocks': function (context) {
       var self      = this;
       var ui        = $.summernote.ui;
       var $note     = context.layoutInfo.note;
@@ -182,8 +181,8 @@
       context.memo('button.blocks',function () {
         var button = ui.button({
           contents: options.blocks.icon,
-          tooltip: lang.blocks.tooltip,
-          click:function (e) {
+          tooltip:  lang.blocks.tooltip,
+          click:    function () {
             context.invoke('blocks.show');
           }
         });
@@ -197,8 +196,8 @@
                   '    <input type="checkbox" class="note-blocks-replaceContent" name="note-blocks-replaceContent">' +
                   '</div>';
         this.$dialog = ui.dialog({
-          title: lang.blocks.dialogTitle,
-          body: body,
+          title:  lang.blocks.dialogTitle,
+          body:   body,
           footer: '<button href="#" class="btn btn-primary note-blocks-btn">' + lang.blocks.editBtn + '</button>'
         }).render().appendTo($container);
       };
@@ -206,14 +205,14 @@
         ui.hideDialog(this.$dialog);
         this.$dialog.remove();
       };
-      this.bindEnterKey = function ($input,$btn) {
+      this.bindEnterKey = function ($input, $btn) {
         $input.on('keypress',function (event) {
           if (event.keyCode === 13) $btn.trigger('click');
         });
       };
       this.bindLabels = function () {
       	self.$dialog.find('.form-control:first').focus().select();
-      	self.$dialog.find('label').on('click',function () {
+      	self.$dialog.find('label').on('click', function () {
       		$(this).parent().find('.form-control:first').focus();
       	});
       };
@@ -222,22 +221,22 @@
       };
       this.showblocksDialog = function () {
         return $.Deferred(function (deferred) {
-          var $editBtn = self.$dialog.find('.note-blocks-btn');
-          ui.onDialogShown(self.$dialog,function () {
+          var $blocksBtn = self.$dialog.find('.note-blocks-btn');
+          ui.onDialogShown(self.$dialog, function () {
             context.triggerEvent('dialog.shown');
             var ii = 1;
             $('#note-blocks').html('');
             $.get(options.blocks.templates).done(function (data) {
-              $(data).find("a").attr("href",function (i,val) {
+              $(data).find("a").attr("href", function (i,val) {
                 if (val.match(/\.(html)$/)) {
-                  var filename = val.replace('.html','.png');
-                  var name = val.replace(/.html|%20|_/gi,' ');
+                  var filename = val.replace('.html', '.png');
+                  var name = val.replace(/.html|%20|_/gi, ' ');
                   $('#note-blocks').append('<div class="col-xs-12"><input id="note-select-' + ii + '" class="hidden" type="radio" value="' + val + '" name="note-blocks-select">&nbsp;&nbsp;<label for="note-select-' + ii + '" class="control-label note-blocks-label"><img src="' + options.blocks.templates + name + '" class="img-responsive note-thumb-selection" onclick="$(\'.note-thumb-selection\').css({\'box-shadow\':\'none\'});$(this).css({\'box-shadow\':\'0 0 10px #f40\'});"></label></div>');
                   ii++;
                 }
               });
             });
-            $editBtn.click(function (e) {
+            $blocksBtn.click(function (e) {
               var blocksSelected = $('input[name=note-blocks-select]:checked').val();
               if (blocksSelected) {
                 $.get(options.blocks.templates + blocksSelected).done(function (data) {
@@ -250,15 +249,15 @@
                 ui.hideDialog(self.$dialog);
               }
             });
-            self.bindEnterKey($editBtn);
+            self.bindEnterKey($blocksBtn);
             self.bindLabels();
           });
           this.destroy = function () {
             ui.hideDialog(this.$dialog);
             this.$dialog.remove();
           };
-          ui.onDialogHidden(self.$dialog,function () {
-            $editBtn.off('click');
+          ui.onDialogHidden(self.$dialog, function () {
+            $blocksBtn.off('click');
             if (deferred.state() === 'pending') deferred.reject();
           });
           ui.showDialog(self.$dialog);
@@ -356,16 +355,16 @@ var dateFormat = function () {
 			mask = mask.slice(4);
 			utc = true;
 		}
-		var	_ = utc ? "getUTC" : "get",
-			  d = date[_ + "Date"](),
-			  D = date[_ + "Day"](),
-			  m = date[_ + "Month"](),
-			  y = date[_ + "FullYear"](),
-			  H = date[_ + "Hours"](),
-			  M = date[_ + "Minutes"](),
-			  s = date[_ + "Seconds"](),
-			  L = date[_ + "Milliseconds"](),
-			  o = utc ? 0 : date.getTimezoneOffset(),
+		var	_     = utc ? "getUTC" : "get",
+			  d     = date[_ + "Date"](),
+			  D     = date[_ + "Day"](),
+			  m     = date[_ + "Month"](),
+			  y     = date[_ + "FullYear"](),
+			  H     = date[_ + "Hours"](),
+			  M     = date[_ + "Minutes"](),
+			  s     = date[_ + "Seconds"](),
+			  L     = date[_ + "Milliseconds"](),
+			  o     = utc ? 0 : date.getTimezoneOffset(),
 			  flags = {
 				  d:    d,
 				  dd:   pad(d),

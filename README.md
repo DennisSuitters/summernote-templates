@@ -24,7 +24,7 @@ Currently available in English!
 ````javascript
 $('.summernote').summernote({
     toolbar:[
-        ['custom',['newpage','blocks']], // Custom Button
+        ['custom',['pageTemplates','blocks']], // Custom Buttons
         ['style',['style']],
         ['font',['bold','italic','underline','clear']],
         ['fontname',['fontname']],
