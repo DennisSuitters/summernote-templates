@@ -103,7 +103,7 @@
                 if (val.match(/\.(html)$/)) {
                   var filename = val.replace('.html', '.png');
                   var name = val.replace(/.html|%20|_/gi, ' ');
-                  $('#note-pageTemplates').append('<div class="col-xs-3"><input id="note-select-' + ii + '" class="hidden" type="radio" value="' + val + '" name="note-pageTemplates-select">&nbsp;&nbsp;<label for="note-select-' + ii + '" class="control-label note-pageTemplates-label"><img src="' + options.pageTemplates.templates + name + '" class="img-thumbnail note-thumb-selection" onclick="$(\'.note-thumb-selection\').css({\'box-shadow\':\'none\'});$(this).css({\'box-shadow\':\'0 0 10px #f40\'});"></label><small><small>' + name.charAt(0).toUpperCase() + name.substr(1).toLowerCase() + '</small></small></div>');
+                  $('#note-pageTemplates').append('<div class="col-xs-3"><input id="note-select-' + ii + '" class="hidden" type="radio" value="' + val + '" name="note-pageTemplates-select">&nbsp;&nbsp;<label for="note-select-' + ii + '" class="control-label note-pageTemplates-label"><img src="' + options.pageTemplates.templates + filename + '" class="img-thumbnail note-thumb-selection" onclick="$(\'.note-thumb-selection\').css({\'box-shadow\':\'none\'});$(this).css({\'box-shadow\':\'0 0 10px #f40\'});"></label><small><small>' + name.charAt(0).toUpperCase() + name.substr(1).toLowerCase() + '</small></small></div>');
                   ii++;
                 }
               });
@@ -231,7 +231,7 @@
                 if (val.match(/\.(html)$/)) {
                   var filename = val.replace('.html', '.png');
                   var name = val.replace(/.html|%20|_/gi, ' ');
-                  $('#note-blocks').append('<div class="col-xs-12"><input id="note-select-' + ii + '" class="hidden" type="radio" value="' + val + '" name="note-blocks-select">&nbsp;&nbsp;<label for="note-select-' + ii + '" class="control-label note-blocks-label"><img src="' + options.blocks.templates + name + '" class="img-responsive note-thumb-selection" onclick="$(\'.note-thumb-selection\').css({\'box-shadow\':\'none\'});$(this).css({\'box-shadow\':\'0 0 10px #f40\'});"></label></div>');
+                  $('#note-blocks').append('<div class="col-xs-12"><input id="note-select-' + ii + '" class="hidden" type="radio" value="' + val + '" name="note-blocks-select">&nbsp;&nbsp;<label for="note-select-' + ii + '" class="control-label note-blocks-label"><img src="' + options.blocks.templates + filename + '" class="img-responsive note-thumb-selection" onclick="$(\'.note-thumb-selection\').css({\'box-shadow\':\'none\'});$(this).css({\'box-shadow\':\'0 0 10px #f40\'});"></label></div>');
                   ii++;
                 }
               });
