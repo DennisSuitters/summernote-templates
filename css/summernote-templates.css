@@ -1,0 +1,26 @@
+#note-pageTemplates,
+#note-blocks {
+  max-height: 310px;
+  overflow: auto;
+}
+#note-pageTemplates input[type=radio] + label img,
+#note-blocks input[type=radio] + label img {
+  border: var(--note-form-input-border-width) var(--note-form-input-border-style) var(--note-form-input-border-color);
+}
+#note-pageTemplates input[type=radio]:checked + label img,
+#note-blocks input[type=radio]:checked + label img {
+  border: var(--note-form-input-border-width) var(--note-form-input-border-style) var(--note-form-input-border-focus);
+}
+.note-pageTemplates,
+.note-blocks {
+  width: 25%;
+  margin: .5rem 1rem;
+  float: left;
+}
+.note-blocks {
+  width: 95%;
+}
+.note-pageTemplates img,
+.note-blocks img {
+  width: 100%;
+}

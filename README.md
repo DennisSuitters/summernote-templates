@@ -52,7 +52,7 @@ $('.summernote').summernote({
         yourEmail:     'your@email.com'
     },
     blocks:{
-        templates: 'bootstrap-templates/' // The folder where the Block Templates are stored
+        templates: 'block-templates/' // The folder where the Block Templates are stored
     }
 });
 ````

@@ -42,22 +42,31 @@
     },
     blocks: {
       icon: '<i class="note-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" width="14" height="14"><path d="M 1,6.249111 H 6.25031 V 1 H 1 V 6.249111 z M 7.74969,1 V 6.249111 H 13 V 1 H 7.74969 z m 0,12 H 13 V 7.750444 H 7.74969 V 13 z M 1,13 H 6.25031 V 7.750444 H 1 V 13 z"/></svg></i>',
-      templates: '../summernote-templates/bootstrap-templates/'
+      templates: '../summernote-templates/block-templates/'
     }
   });
   $.extend($.summernote.plugins, {
     'pageTemplates': function (context) {
-      var self      = this;
-      var ui        = $.summernote.ui;
-      var $note     = context.layoutInfo.note;
-      var $editor   = context.layoutInfo.editor;
-      var $editable = context.layoutInfo.editable;
-      var options   = context.options;
-      var lang      = options.langInfo;
+      var self      = this,
+          ui        = $.summernote.ui,
+          $note     = context.layoutInfo.note,
+          $editor   = context.layoutInfo.editor,
+          $editable = context.layoutInfo.editable,
+          options   = context.options,
+          lang      = options.langInfo;
+      if (!$("link[href='../summernote-templates/css/summernote-templates.css']").length){
+        $('<link/>', {
+          rel: 'stylesheet',
+          type: 'text/css',
+          href: '../summernote-templates/css/summernote-templates.css'
+        }).appendTo('head');
+      }
       context.memo('button.pageTemplates', function () {
         var button = ui.button({
           contents: options.pageTemplates.icon,
+          container: options.container,
           tooltip:  lang.pageTemplates.tooltip,
+          placement: options.placement,
           click:    function (e) {
             context.invoke('pageTemplates.show');
           }
@@ -66,11 +75,11 @@
       });
       this.initialize = function () {
         var $container = options.dialogsInBody ? $(document.body) : $editor;
-        var body       = '<div id="note-pageTemplates" style="max-height:310px;overflow:auto;"></div>';
+        var body       = '<div id="note-pageTemplates"></div>';
         this.$dialog   = ui.dialog({
           title:  lang.pageTemplates.dialogTitle,
           body:   body,
-          footer: '<button href="#" class="btn btn-primary note-pageTemplates-btn">' + lang.pageTemplates.editBtn + '</button>'
+          footer: '<button href="#" class="note-btn note-btn-primary note-pageTemplates-btn">' + lang.pageTemplates.editBtn + '</button>'
         }).render().appendTo($container);
       };
       this.destroy = function () {
@@ -97,13 +106,21 @@
           ui.onDialogShown(self.$dialog, function () {
             context.triggerEvent('dialog.shown');
             var ii = 1;
+            var pT = '';
             $('#note-pageTemplates').html('');
             $.get(options.pageTemplates.templates).done(function (data) {
               $(data).find("a").attr("href", function (i, val) {
                 if (val.match(/\.(html)$/)) {
                   var filename = val.replace('.html', '.png');
                   var name = val.replace(/.html|%20|_/gi, ' ');
-                  $('#note-pageTemplates').append('<div class="col-xs-3"><input id="note-select-' + ii + '" class="hidden" type="radio" value="' + val + '" name="note-pageTemplates-select">&nbsp;&nbsp;<label for="note-select-' + ii + '" class="control-label note-pageTemplates-label"><img src="' + options.pageTemplates.templates + filename + '" class="img-thumbnail note-thumb-selection" onclick="$(\'.note-thumb-selection\').css({\'box-shadow\':\'none\'});$(this).css({\'box-shadow\':\'0 0 10px #f40\'});"></label><small><small>' + name.charAt(0).toUpperCase() + name.substr(1).toLowerCase() + '</small></small></div>');
+                  pT = '<div class="note-pageTemplates">' +
+                    '<input id="note-select-' + ii + '" type="radio" value="' + val + '" name="note-pageTemplates-select" hidden>' +
+                    '<label for="note-select-' + ii + '" class="note-pageTemplates-label">' +
+                      '<img src="' + options.pageTemplates.templates + filename + '" class="note-thumb-selection">' +
+                    '</label>' +
+                    '<small>' + name.charAt(0).toUpperCase() + name.substr(1).toLowerCase() + '</small>' +
+                  '</div>';
+                  $('#note-pageTemplates').append(pT);
                   ii++;
                 }
               });
@@ -171,17 +188,26 @@
   });
   $.extend($.summernote.plugins, {
     'blocks': function (context) {
-      var self      = this;
-      var ui        = $.summernote.ui;
-      var $note     = context.layoutInfo.note;
-      var $editor   = context.layoutInfo.editor;
-      var $editable = context.layoutInfo.editable;
-      var options   = context.options;
-      var lang      = options.langInfo;
+      var self      = this,
+          ui        = $.summernote.ui,
+          $note     = context.layoutInfo.note,
+          $editor   = context.layoutInfo.editor,
+          $editable = context.layoutInfo.editable,
+          options   = context.options,
+          lang      = options.langInfo;
+      if (!$("link[href='../summernote-templates/css/summernote-templates.css']").length){
+        $('<link/>', {
+          rel: 'stylesheet',
+          type: 'text/css',
+          href: '../summernote-templates/css/summernote-templates.css'
+        }).appendTo('head');
+      }
       context.memo('button.blocks',function () {
         var button = ui.button({
           contents: options.blocks.icon,
+          container: options.container,
           tooltip:  lang.blocks.tooltip,
+          placement: options.placement,
           click:    function () {
             context.invoke('blocks.show');
           }
@@ -190,15 +216,15 @@
       });
       this.initialize = function () {
         var $container = options.dialogsInBody ? $(document.body) : $editor;
-        var body = '<div id="note-blocks" style="max-height:310px;overflow:auto;"></div>' +
-                  '<div class="form-group">' +
-                  '  <label for="note-image-attributes-link-class" class="control-label">Replace Content</label>' +
-                  '    <input type="checkbox" class="note-blocks-replaceContent" name="note-blocks-replaceContent">' +
+        var body = '<div id="note-blocks"></div>' +
+                  '<div class="note-form-group">' +
+                    '<input type="checkbox" class="note-blocks-replaceContent" name="note-blocks-replaceContent">' +
+                    '<label for="note-image-attributes-link-class" class="note-form-label">Replace Content</label>' +
                   '</div>';
         this.$dialog = ui.dialog({
           title:  lang.blocks.dialogTitle,
           body:   body,
-          footer: '<button href="#" class="btn btn-primary note-blocks-btn">' + lang.blocks.editBtn + '</button>'
+          footer: '<button href="#" class="note-btn note-btn-primary note-blocks-btn">' + lang.blocks.editBtn + '</button>'
         }).render().appendTo($container);
       };
       this.destroy = function () {
@@ -225,13 +251,20 @@
           ui.onDialogShown(self.$dialog, function () {
             context.triggerEvent('dialog.shown');
             var ii = 1;
+            var pT = '';
             $('#note-blocks').html('');
             $.get(options.blocks.templates).done(function (data) {
               $(data).find("a").attr("href", function (i,val) {
                 if (val.match(/\.(html)$/)) {
                   var filename = val.replace('.html', '.png');
                   var name = val.replace(/.html|%20|_/gi, ' ');
-                  $('#note-blocks').append('<div class="col-xs-12"><input id="note-select-' + ii + '" class="hidden" type="radio" value="' + val + '" name="note-blocks-select">&nbsp;&nbsp;<label for="note-select-' + ii + '" class="control-label note-blocks-label"><img src="' + options.blocks.templates + filename + '" class="img-responsive note-thumb-selection" onclick="$(\'.note-thumb-selection\').css({\'box-shadow\':\'none\'});$(this).css({\'box-shadow\':\'0 0 10px #f40\'});"></label></div>');
+                  pT = '<div class="note-blocks">' +
+                    '<input id="note-select-' + ii + '" type="radio" value="' + val + '" name="note-blocks-select" hidden>' +
+                    '<label for="note-select-' + ii + '" class="note-blocks-label">' +
+                      '<img src="' + options.blocks.templates + filename + '" class="note-thumb-selection">' +
+                    '</label>' +
+                  '</div>';
+                  $('#note-blocks').append(pT);
                   ii++;
                 }
               });
